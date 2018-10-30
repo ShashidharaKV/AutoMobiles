@@ -33,8 +33,8 @@ public class Product
 	@Id
 private String ProductID;
 private String Name;
-private String Price;
-private String Qty;
+private Double Price;
+private int Qty;
 private String Description;
 
 public Product()
@@ -70,16 +70,17 @@ public String getName() {
 public void setName(String name) {
 	Name = name;
 }
-public String getPrice() {
+
+public Double getPrice() {
 	return Price;
 }
-public void setPrice(String price) {
+public void setPrice(Double price) {
 	Price = price;
 }
-public String getQty() {
+public int getQty() {
 	return Qty;
 }
-public void setQty(String qty) {
+public void setQty(int qty) {
 	Qty = qty;
 }
 public String getDescription() {

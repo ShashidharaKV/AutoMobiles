@@ -45,8 +45,19 @@ public class ShippingDAOImpl implements ShippingDAO
 		}
 
 		public List<Shipping> shippinglist() {
+			@SuppressWarnings("unchecked")
 			List<Shipping> shipping=(List<Shipping>)sessionFactory.getCurrentSession().createCriteria(Shipping.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 			return shipping;
+		}
+
+		public List<Shipping> getaddbyuser(String userID) {
+			String query = "from Shipping where uId='"+ userID+"'"; 
+			Query w= sessionFactory.getCurrentSession().createQuery(query);
+			List<Shipping>list=(List<Shipping>)w.list();
+			if(list == null || list.isEmpty())
+				return null;
+			else
+				return list;
 		}
 
 }

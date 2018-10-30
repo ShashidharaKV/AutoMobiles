@@ -12,7 +12,7 @@ import com.niit.AutoSpares.Dao.OrderItemsDAO;
 import com.niit.AutoSpares.model.OrderItems;
 
 
-@Repository("orderitemsDAO")
+@Repository("orderItemsDAO")
 @Transactional
 
 public class OrderItemsDAOImpl implements OrderItemsDAO

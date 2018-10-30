@@ -12,5 +12,6 @@ public interface CartItemsDAO
 	public boolean delete(CartItems cartItems);
 	public CartItems getCartItems(String Cartitems_Id);
 	public List<CartItems> cartitemslist();
+	public List<CartItems> getlist(String cart_Id);
 	
 }

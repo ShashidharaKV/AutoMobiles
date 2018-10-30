@@ -10,5 +10,6 @@ public interface ShippingDAO
 	public boolean delete(Shipping shipping);
 	public Shipping getShipping(String ShipId);
 	public List<Shipping> shippinglist();
+	public List<Shipping> getaddbyuser(String userID);
 	
 }

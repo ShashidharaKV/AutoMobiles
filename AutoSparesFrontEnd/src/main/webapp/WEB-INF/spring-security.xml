@@ -32,7 +32,7 @@
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 				authorities-by-username-query="SELECT username, role_name FROM Authentication WHERE username =?"
-				users-by-username-query="SELECT email, password, 'true' as enabled from User where email=? limit 1" />
+				users-by-username-query="SELECT Email_ID, Password, 'true' as enabled from User where Email_ID=? limit 1"/>
 
 		</security:authentication-provider>
 	</security:authentication-manager>

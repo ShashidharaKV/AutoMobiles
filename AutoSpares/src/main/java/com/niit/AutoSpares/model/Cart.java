@@ -3,6 +3,7 @@ package com.niit.AutoSpares.model;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class Cart
 		
 	}
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="UserId")
 	private User user;
 	
@@ -52,6 +53,18 @@ public class Cart
 	}
 	public void setTotal_items(int total_items) {
 		Total_items = total_items;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<CartItems> getCartitems() {
+		return cartitems;
+	}
+	public void setCartitems(List<CartItems> cartitems) {
+		this.cartitems = cartitems;
 	}
 	
 	

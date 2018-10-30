@@ -2,6 +2,7 @@ package com.niit.AutoSpares.model;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -29,10 +30,10 @@ public class CartItems
 	@JoinColumn(name="Cart_Id")
 	private Cart cart;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="ProductId")
 	private Product product;
-	
+	 
 	public String getCartitem_Id()
 	{
 		return Cartitem_Id;

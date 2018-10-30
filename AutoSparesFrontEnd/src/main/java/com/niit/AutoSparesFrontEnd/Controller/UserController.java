@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.niit.AutoSpares.Dao.UserDAO;
+import com.niit.AutoSpares.model.Cart;
 import com.niit.AutoSpares.model.User;
 
 @Controller
@@ -33,6 +34,9 @@ public class UserController
 	public ModelAndView adduser(@ModelAttribute("user")User user)
 	{
 	ModelAndView MV=new ModelAndView();
+	Cart c= new Cart();
+	c.setUser(user);
+	user.setCart(c);
 	if(userDAO.saveorupdate(user)==true)
 	{
 	MV.addObject("Msg","User saved");

@@ -12,7 +12,7 @@ import com.niit.AutoSpares.Dao.CartItemsDAO;
 import com.niit.AutoSpares.model.CartItems;
 
 
-@Repository("carItemsDAO")
+@Repository("cartItemsDAO")
 @Transactional
 public class CartItemsDAOImpl implements CartItemsDAO
 {
@@ -48,6 +48,17 @@ public class CartItemsDAOImpl implements CartItemsDAO
 		public List<CartItems> cartitemslist() {
 			List<CartItems> cartItems=(List<CartItems>)sessionFactory.getCurrentSession().createCriteria(CartItems.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 			return cartItems;
+		}
+
+		public List<CartItems> getlist(String cart_Id) {
+			String query = "from CartItems where Cart_Id='"+ cart_Id+"'"; 
+			Query w= sessionFactory.getCurrentSession().createQuery(query);
+			List<CartItems>list=(List<CartItems>)w.list();
+			if(list == null || list.isEmpty())
+				return null;
+			else
+				return list;
+
 		}
 		
 	}

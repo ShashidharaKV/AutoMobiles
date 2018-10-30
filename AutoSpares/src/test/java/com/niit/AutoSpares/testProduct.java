@@ -27,8 +27,8 @@ public class testProduct {
 		
 		p1.setProductID("P101");
 		p1.setName("Prod1");
-		p1.setQty("2");
-		p1.setPrice("2550");
+		p1.setQty(2);
+		p1.setPrice(255.0);
 		p1.setDescription("Geniune Product");
 		
 		s1=SupplierDAO.getSupplier("S121");
@@ -49,8 +49,8 @@ public class testProduct {
 		
 		p1.setProductID("P102");
 		p1.setName("Prod2");
-		p1.setQty("3");
-		p1.setPrice("2150");
+		p1.setQty(3);
+		p1.setPrice(215.0);
 		p1.setDescription("Geniune Product");
 		
 		s1=SupplierDAO.getSupplier("S103");
@@ -71,8 +71,8 @@ public class testProduct {
 		
 		p1.setProductID("P103");
 		p1.setName("Prod3");
-		p1.setQty("4");
-		p1.setPrice("2500");
+		p1.setQty(4);
+		p1.setPrice(250.0);
 		p1.setDescription("Geniune Product");
 		
 		cat.setCategoryID("C101");
@@ -144,8 +144,8 @@ public class testProduct {
 	Product p=new Product();
 	p.setProductID("P1023");
 	p.setName("Clutch");
-	p.setPrice("250/-");
-	p.setQty("2");
+	p.setPrice(350.0);
+	p.setQty(2);
 	p.setDescription("For Honda Vehicles only. Geniune Product");
 	System.out.println(p.getProductID());
 	System.out.println(p.getName());

@@ -49,4 +49,14 @@ public class BillingDAOImpl implements BillingDAO
 			List<Billing> billing=(List<Billing>)sessionFactory.getCurrentSession().createCriteria(Billing.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 			return billing;
 		}
+
+		public Billing getUser(String userID) {
+			String query = "from Billing where UserId='"+ userID+"'"; 
+			Query w= sessionFactory.getCurrentSession().createQuery(query);
+			List<Billing>list=(List<Billing>)w.list();
+			if(list == null || list.isEmpty())
+				return null;
+			else
+				return list.get(0);
+		}
 	}

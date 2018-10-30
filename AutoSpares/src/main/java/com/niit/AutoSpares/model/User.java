@@ -2,6 +2,7 @@ package com.niit.AutoSpares.model;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,11 +29,11 @@ public User()
 	
 }
 
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="Billing_Id")
 private Billing billing;
 
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="Cart_Id")
 private Cart cart;
 
@@ -72,6 +73,18 @@ public String getAddress() {
 }
 public void setAddress(String address) {
 	Address = address;
+}
+public Billing getBilling() {
+	return billing;
+}
+public void setBilling(Billing billing) {
+	this.billing = billing;
+}
+public Cart getCart() {
+	return cart;
+}
+public void setCart(Cart cart) {
+	this.cart = cart;
 }
 
 }

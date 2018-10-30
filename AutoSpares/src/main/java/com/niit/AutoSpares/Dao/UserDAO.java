@@ -8,6 +8,7 @@ public interface UserDAO
 	public User getUser(String ID);
 	public List<User> userlist();
 	public User isValid(String umail, String pwd);
+	public User getEmail(String currusername);
 	        
 	
 	}

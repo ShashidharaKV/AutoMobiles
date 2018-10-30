@@ -2,6 +2,7 @@ package com.niit.AutoSpares.model;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class Billing
 	   		
 	   	}
 	   	
-		@OneToOne
+		@OneToOne(cascade=CascadeType.ALL)
 		@JoinColumn(name="UserId")
 		private User user;
 
