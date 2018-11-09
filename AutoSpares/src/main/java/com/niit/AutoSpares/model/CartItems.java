@@ -30,7 +30,7 @@ public class CartItems
 	@JoinColumn(name="Cart_Id")
 	private Cart cart;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="ProductId")
 	private Product product;
 	 

@@ -52,7 +52,7 @@
 			<div class="clear"> </div>
 			<div class="sub-header">
 				<div class="logo">
-					<a href="index.html"><img src="${img}/${pro.getProductID()}.jpg" width="250px" height="250px" title="logo" /></a>
+					<a href="index.html"><img src="${img}/logo.png" title="logo" /></a>
 				</div>
 				<div class="sub-header-right">
 					<ul>

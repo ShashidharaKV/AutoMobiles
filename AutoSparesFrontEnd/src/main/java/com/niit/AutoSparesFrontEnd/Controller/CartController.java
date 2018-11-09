@@ -48,6 +48,7 @@ public class CartController
 		@Autowired
 		CartItems cartItems;
 		
+		
 		@Autowired
 		CartItemsDAO cartItemsDao;
 		
@@ -148,7 +149,7 @@ public class CartController
 	                        	 List<CartItems> cartItem=cartItemsDao.getlist(u.getCart().getCart_Id()); 
 	                        	 for(CartItems c1:cartItem)
 	                        	 {
-	                        		 cartItemsDao.getCartItems(c1.getCartitem_Id());
+	                        		 cartItemsDao.delete(c1);
 	                        	 }
 	                        	 c.setGrand_total(0.0);
 	                        	 c.setTotal_items(0);

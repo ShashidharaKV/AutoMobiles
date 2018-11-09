@@ -108,7 +108,7 @@ public class OrderController
 			String currusername = authentication.getName();
 			user = userDao.getEmail(currusername);
 			cart = user.getCart();
-			
+			product=null;
 			
 //			session.setAttribute("products", product1);			
 			cartItems1= cartItemsDao.getlist(cart.getCart_Id());
@@ -123,18 +123,19 @@ public class OrderController
 				model.addAttribute("shippingAddress", new Shipping());
 				session.setAttribute("p", product);
 			}
-			return "addressorder";
+			return "billingandshipping";
 		} 
 	
 	
 
-	@RequestMapping("/Buy/{p_id}/{ci_id}")
-	public String order(@PathVariable("p_id") String id, Model model,HttpSession session) {
+	@RequestMapping("/Buy/{ProductID}/{Cartitem_Id}")
+	public String order(@PathVariable("ProductID") String id,@PathVariable("Cartitem_Id")String id2, Model model,HttpSession session) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currusername = authentication.getName();
 			user = userDao.getEmail(currusername);
 			cart = user.getCart();
+			cartItems=cartItemsDao.getCartItems(id2);
 			cartItems1=null;
 			product = productDao.getProduct(id);
 			billing = billingDao.getUser(user.getUserID());
@@ -152,7 +153,7 @@ public class OrderController
 			model.addAttribute("shippingAddresies", shippingAddresies);
 			model.addAttribute("shippingAddress", new Shipping());
 			session.setAttribute("p", product);
-			return "addressorder";
+			return "billingandshipping";
 		} else {
 			return "redirect:/";
 		}
@@ -173,7 +174,7 @@ public class OrderController
 		model.addAttribute("prot", product);
 		model.addAttribute("cartItems",cartItems1);
 		model.addAttribute("cart",cart);
-		return "orderconfirm";
+		return "OrderConfirmation";
 	}
 
 	@RequestMapping("/previous")
@@ -182,10 +183,17 @@ public class OrderController
 		model.addAttribute("shippingAddresies", shippingAddresies);
 		model.addAttribute("billing", billing);
 		model.addAttribute("shippingAddress", shipping);
-		model.addAttribute("product", product);
+		model.addAttribute("prot", product);
 		
-		return "addressorder";
+		return "billingandshipping";
 	}
+	
+	@RequestMapping("/pay")
+	public String payment() {
+				
+		return "Payment" ;	
+		}
+			
 	
 	@RequestMapping("/payment")
 	public String payment(@RequestParam("payb2") String str, Model model) {

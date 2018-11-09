@@ -34,35 +34,26 @@ table, th, td {
 <th align="center" >PRODUCT ID</th>
 <th align="center"> NAME </th>
 <th align="center">DESCRIPTION</th>
-<th align="center">QUANTITY</th>
 <th> PRICE </th>
 </tr>
  
+ <c1:forEach items="${cartItem}" var="car">
 <tr style="align:center">
-<td align="center">100</td>
-<td align="center">Gears</td>
-<td align="center">Honda Spares</td>
-<td align="center">2</td>
-<td align="center">2000.Rs</td>
-<td align="center"><button class="button button1">Buy</button></td>
-<td align="center"><button class="button button1">Remove</button></td>
+<td align="center">${car.getProduct().getProductID()}</td>
+<td align="center">${car.getProduct().getName()}</td>
+<td align="center">${car.getProduct().getDescription()}</td>
+<td align="center">${car.getProduct().getPrice()}.Rs</td>
+<td align="center"><button class="button button1"><a href="<c:url value="/Buy/${car.getProduct().getProductID()}/${car.getCartitem_Id()}"/>">Buy</a></button></td>
+<td align="center"><button class="button button1"><a href="<c:url value="/Remove/${car.getCartitem_Id()}"/>">Remove</a></button></td>
 </tr>
- 
-<tr style="align:center">
-<td align="center">101</td>
-<td align="center">Clutch</td>
-<td align="center">Mahendra Mojo Spare</td>
-<td align="center">2</td>
-<td align="center">3080.Rs</td>
-<td align="center";style= "border-collapse: collapse"><button class="button button1">Buy</button></td>
-<td align="center";style= "border-collapse: collapse"><button class="button button1">Remove</button></td>
-<tr>
+</c1:forEach> 
+
 </div>
  
 </table>
-<button class="button button1">Buy ALL</button>
+<button class="button button1"><a href="<c:url value="/Buyall"/>">Buy ALL</a></button>
 <div></div>
-<button class="button button1">Remove ALL</button>
+<button class="button button1"><a href="<c:url value="/RemoveAll"/>">Remove ALL</a></button>
 
 </body>
 

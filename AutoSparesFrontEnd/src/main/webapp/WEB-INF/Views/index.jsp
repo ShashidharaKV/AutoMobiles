@@ -37,7 +37,7 @@
 			<div class="top-header">
 				<div class="top-header-left">
 					<ul>
-						<li class="active"><a href="<c:url value="/index"/>">Home</a></li>
+						<li class="active"><a href="<c:url value="/"/>">Home</a></li>
 						<li><a href="#">All Products</a></li>
 						<li><a href="#">Delivery</a></li>
 						<li><a href="#">Contact</a></li>
@@ -52,7 +52,7 @@
 			<div class="clear"> </div>
 			<div class="sub-header">
 				<div class="logo">
-					<a href="index.html"><img src="${img}/${pro.getProductID()}.jpg" width="250px" height="250px" title="logo" /></a>
+					<a href="index.html"><img src="${img}/logo.png" title="logo" /></a>
 				</div>
 				<div class="sub-header-right">
 					<ul>
